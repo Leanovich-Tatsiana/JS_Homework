@@ -3,7 +3,7 @@
 var names = ['Vasya', 'Vitya', 'Tanya'];
 
 var result = names.map(function (name) {
-  return { name };
+  return { name: name };
 });
 
 console.log(result);
@@ -12,35 +12,25 @@ console.log(result);
 
 var arr = ['00', '13', '24'];
 
-var arr2 = arr.reduce(
-  function (prev, item) {
-    return prev + ' : ' + item;
-  },
-  ['Текущее время']
-);
+var arr2 = arr.reduce(function (prev, item) {
+  return prev + ' : ' + item;
+}, 'Текущее время');
 console.log(arr2);
 
 //Задание 3:
-//a)
 
 function words(str) {
-  var stringsearch = /[аоиеёэыуюя]/g;
-  var str = 'привет всем';
-
-  return str.match(stringsearch).length;
+  var strArr = str.toLowerCase().split('');
+  var strA = 'аеёиоуыэюя';
+  var r = strArr.reduce(function (sum, val) {
+    if (strA.indexOf(val) >= 0) {
+      sum++;
+    }
+    return sum;
+  }, 0);
+  return r;
 }
 
-console.log(words('привет всем'));
-//b)
-
-function words(str) {
-  var str = 'привет всем ';
-
-  var arrA = str.split('').filter(function (item) {
-    return 'аоиеёэыуюя'.includes(item);
-  });
-  return arrA.length;
-}
 console.log(words('привет всем '));
 
 //Задание 4:
