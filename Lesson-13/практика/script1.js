@@ -13,50 +13,35 @@ container.appendChild(secondPar);
 var elemButton = document.getElementsByTagName('button')[0];
 var elemA = firstPar.children;
 var elemB = secondPar.children;
-var elemBa = secondPar.children[0];
-var elemBb = secondPar.children[1];
-for (var i = 0; i < elemA.length; i++) {
-  elemA[i].classList.add('classA');
-}
 
-elemButton.addEventListener('click', function colorElem() {
+elemButton.onclick = function () {
   for (var i of elemA) {
-    i.style.cssText = 'color:red ; font-weight:bolder;';
-  }
-});
-secondPar.onclick = function () {
-  if (event.target == elemBa) {
-    event.preventDefault();
-    var hrefEvent = event.target.getAttribute('href');
-    //alert(hrefEvent);
-
-    if (localStorage["Link 3"]== undefined) {
-      alert('Информации о ссылке сохранена');
-      localStorage.setItem(
-        'Link 3',
-        JSON.stringify({ path: 'http://google.by' })
-      );
-
-      var hrefEvent2 = event.target.setAttribute('href', '#'); 
-    } else {
-      alert('http://google.by');
-    };
-  };
-  if (event.target == elemBb){
-    if(localStorage["Link 4"]== undefined) {
-      alert('Информации о ссылке сохранена');
-      localStorage.setItem(
-        'Link 4',
-        JSON.stringify({ path: 'https://vk.com'} )
-      );
-      var hrefEvent2 = event.target.setAttribute('href', '#');
-    }else  {
-      alert('https://vk.com');
-    }
-
-    
+    i.classList.toggle('red')
   }
 };
 
+secondPar.addEventListener('click', function(event) {
+  event.preventDefault();
+  if(event.target.tagName == 'A'){
+    var key = event.target.textContent;
+    var value = event.target.getAttribute('href');
+  
+      if (event.target.getAttribute('href') !== '#') {
+            localStorage.setItem(key, JSON.stringify({path: value}));
+            event.target.setAttribute('href', '#');
+            alert('Ссылка была сохранена');
+        }else {
+            for (var i = 0; i < localStorage.length; i++) {
+                if (key === localStorage.key(i)) {
+                  var  keyStorage = localStorage.key(i);
+                  valueStorage = JSON.parse(localStorage.getItem(localStorage.key(i))).path;
+                  alert(valueStorage);
+                }
+            }  
+        }
+  }
+  
+  
+}, false);
 window.localStorage.clear();
 
