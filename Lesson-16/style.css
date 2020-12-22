@@ -1,0 +1,63 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  background-color: black;
+}
+.page-content {
+  width: 800px;
+  margin: 50px auto;
+  position: relative;
+}
+.info-blocksA {
+  background-color: white;
+  width: 800px;
+  height: 200px;
+  border-radius: 0 10px 10px 10px;
+  margin-top: 12px;
+}
+.user-tab.user-tabA {
+  background-color: white;
+  color: black;
+}
+.user-tab {
+  background-color: rgb(34, 235, 34);
+  border-radius: 10px 10px 0 0;
+  margin-right: 10px;
+  color: white;
+  font-size: 20px;
+  text-align: center;
+  padding: 12px 12px;
+  display: inline;
+  cursor: pointer;
+}
+button {
+  background-color: rgb(34, 235, 34);
+  width: 120px;
+  height: 30px;
+  border: 1px solid white;
+  position: absolute;
+  top: -14px;
+  right: 0;
+}
+img {
+  margin: 20px;
+  float: left;
+}
+p {
+  display: inline-block;
+  margin-top: 40px;
+  font-size: 20px;
+}
+.new-error {
+  width: 400px;
+  height: 200px;
+  background-color: white;
+  text-align: center;
+  font-size: 30px;
+  color: tomato;
+  padding-top: 50px;
+  margin: 30px auto;
+}
