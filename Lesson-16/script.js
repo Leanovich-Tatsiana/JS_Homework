@@ -1,11 +1,9 @@
+localStorage.clear();
 var elemButton = document.getElementsByTagName('button')[0];
-var mainBlock = (document.getElementsByClassName(
-  'main-block'
-)[0].hidden = true);
-var pageContent = document.getElementsByClassName('page-content')[0];
 var userTabs = document.getElementsByClassName('user-tabs')[0];
 var infoBlocks = document.getElementsByClassName('info-blocks')[0];
 var arr;
+
 elemButton.onclick = function () {
   if (
     localStorage.getItem['user data'] == undefined &&
@@ -53,8 +51,6 @@ elemButton.onclick = function () {
     console.log('я localStorage');
   }
 };
-var LS = localStorage.getItem('user data');
-var arr2 = JSON.parse(LS);
 var userTabsN = document.querySelectorAll('user-tabs');
 
 document
@@ -77,7 +73,6 @@ document
         }
       }
     }
-    if (event.target.className != 'user-tabA' || 'user-tab') return;
   });
 function writeUser(arr) {
   arr.forEach(function (item, i) {
@@ -108,4 +103,3 @@ function writeUser(arr) {
     elemButton.disabled = true;
   });
 }
-//localStorage.clear();
