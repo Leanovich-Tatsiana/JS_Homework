@@ -1,4 +1,3 @@
-localStorage.clear();
 var elemButton = document.getElementsByTagName('button')[0];
 var userTabs = document.getElementsByClassName('user-tabs')[0];
 var infoBlocks = document.getElementsByClassName('info-blocks')[0];
@@ -75,31 +74,35 @@ document
     }
   });
 function writeUser(arr) {
-  arr.forEach(function (item, i) {
-    var userTabsNew = document.createElement('div');
-    var infoBlocksNew = document.createElement('div');
-    userTabsNew.classList.add('user-tab');
-    userTabsNew.setAttribute('data-tab', [i]);
-    infoBlocksNew.classList.toggle('info-blocksA');
-    userTabs.appendChild(userTabsNew);
-    infoBlocks.appendChild(infoBlocksNew).hidden = true;
-    if (i == 0) {
-      var tabS = document.querySelectorAll('.user-tab')[0];
-      infoBlocks.appendChild(infoBlocksNew).hidden = false;
-      tabS.classList.toggle('user-tabA');
-    }
-    userTabsNew.textContent = 'User ' + [i + 1];
-    infoBlocksNew.innerHTML =
-      '<img src = "' +
-      item.avatar +
-      '">' +
-      '<p>' +
-      'First Name: ' +
-      item.first_name +
-      '<br>' +
-      'Last Name: ' +
-      item.last_name +
-      '</p>';
-    elemButton.disabled = true;
-  });
-}
+  if (userTabs.children.length == 6 && infoBlocks.children.length == 6) {
+    userTabs.children.remove;
+    infoBlocks.children.remove;
+  } else {
+    arr.forEach(function (item, i) {
+      var userTabsNew = document.createElement('div');
+      var infoBlocksNew = document.createElement('div');
+      userTabsNew.classList.add('user-tab');
+      userTabsNew.setAttribute('data-tab', [i]);
+      infoBlocksNew.classList.toggle('info-blocksA');
+      userTabs.appendChild(userTabsNew);
+      infoBlocks.appendChild(infoBlocksNew).hidden = true;
+      if (i == 0) {
+        var tabS = document.querySelectorAll('.user-tab')[0];
+        infoBlocks.appendChild(infoBlocksNew).hidden = false;
+        tabS.classList.toggle('user-tabA');
+      }
+      userTabsNew.textContent = 'User ' + [i + 1];
+      infoBlocksNew.innerHTML =
+        '<img src = "' +
+        item.avatar +
+        '">' +
+        '<p>' +
+        'First Name: ' +
+        item.first_name +
+        '<br>' +
+        'Last Name: ' +
+        item.last_name +
+        '</p>';
+    });
+  }
+};
