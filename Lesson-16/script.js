@@ -74,7 +74,10 @@ document
     }
   });
 function writeUser(arr) {
-  if (userTabs.children.length == 6 && infoBlocks.children.length == 6) {
+  if (
+    userTabs.children.length == arr.length &&
+    infoBlocks.children.length == arr.length
+  ) {
     userTabs.children.remove;
     infoBlocks.children.remove;
   } else {
@@ -105,4 +108,4 @@ function writeUser(arr) {
         '</p>';
     });
   }
-};
+}
